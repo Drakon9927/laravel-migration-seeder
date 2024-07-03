@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
+use App\Models\Train;
 
-class Controller extends BaseController
+class TrainController extends Controller
 {
-    use AuthorizesRequests, ValidatesRequests;
+    public function index()
+    {
+        $trains = Train::all();
+        return view('home', compact('trains'));  
+    }
 }
